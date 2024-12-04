@@ -1,0 +1,12 @@
+<div *ngFor="let player of players; trackBy: trackByPlayerName">
+    <div>{{ player.name }}</div>
+    <div>{{ player.age }}</div>
+    <div>{{ player.nationality }}</div>
+    <div>{{ player.positions }}</div>
+    <div>{{ player.value_euro }}</div>
+    <img [src]="player.image">
+    <button>Editar</button>
+    <button class="delete-button" (click)="deletePlayer(player._id)">Delete</button>
+    <br />
+  </div>
+  
