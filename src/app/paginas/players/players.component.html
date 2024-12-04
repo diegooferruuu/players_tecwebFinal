@@ -1,12 +1,43 @@
 <div *ngFor="let player of players; trackBy: trackByPlayerName">
-    <div>{{ player.name }}</div>
-    <div>{{ player.age }}</div>
-    <div>{{ player.nationality }}</div>
-    <div>{{ player.positions }}</div>
-    <div>{{ player.value_euro }}</div>
-    <img [src]="player.image">
-    <button>Editar</button>
-    <button class="delete-button" (click)="deletePlayer(player._id)">Delete</button>
-    <br />
-  </div>
+  <div>{{ player.name }}</div>
+  <div>{{ player.age }}</div>
+  <div>{{ player.nationality }}</div>
+  <div>{{ player.positions }}</div>
+  <div>{{ player.value_euro }}</div>
+  <img [src]="player.image" alt="Player Image">
+
+  <!-- Botón para editar el jugador -->
+  <button (click)="editPlayer(player)">Editar</button>
   
+  <!-- Botón para eliminar el jugador -->
+  <button class="delete-button" (click)="deletePlayer(player._id)">Delete</button>
+  
+  <!-- Formulario de edición que solo se muestra cuando el jugador está siendo editado -->
+  <div *ngIf="isEditing && player._id === playerToEdit?._id">
+    <form (ngSubmit)="saveChanges()">
+      <label for="name">Name:</label>
+      <input [(ngModel)]="playerToEdit.name" name="name" required />
+
+      <label for="age">Age:</label>
+      <input type="number" name="age" [(ngModel)]="playerToEdit.age" required />
+
+      <label for="nationality">Nationality:</label>
+      <input type="text" name="nationality" [(ngModel)]="playerToEdit.nationality" required />
+
+      <label for="positions">Positions:</label>
+      <input type="text" name="positions" [(ngModel)]="playerToEdit.positions" required />
+
+      <label for="value_euro">Value Euro:</label>
+      <input type="number" name="value_euro" [(ngModel)]="playerToEdit.value_euro" required />
+
+      <label for="image">Image:</label>
+      <input type="text" name="image" [(ngModel)]="playerToEdit.image" required />
+
+      <!-- Botones para guardar o cancelar -->
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="cancelEdit()">Cancelar</button>
+    </form>
+  </div>
+
+  <br />
+</div>

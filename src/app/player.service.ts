@@ -18,4 +18,8 @@ export class PlayerService {
   deletePlayerByID(id: string): Observable<Player>{
     return this.http.delete<Player>(this.url +"/"+ id);
   }
+
+  updatePlayerByID(id: string, updates: Partial<any>): Observable<any> {
+    return this.http.patch<Player>(this.url +"/"+ id, updates);
+  }
 }
