@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Player } from './models/player';
@@ -26,6 +26,19 @@ export class PlayerService {
   createPlayer(player: Partial<Player>): Observable<Player> {
     return this.http.post<Player>('http://localhost:3000/player', player);
   }
+
+
+  getPlayerById(player: Partial<Player>): Observable<Player> {
+    return this.http.post<Player>('http://localhost:3000/player', player);
+  }
+
+
+  // getPlayerByName(name: string): Observable<Player> {
+  //   const params = new HttpParams().set('name', name); // Configuramos el parámetro 'name'
+  //   return this.http.get<Player>(`${this.url}/search`, { params });
+  // }
+  
+  
   
   
 }

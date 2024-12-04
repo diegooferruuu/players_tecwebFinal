@@ -1,0 +1,123 @@
+/* Fondo general */
+:host {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #006400, #00b894);
+    color: #fff;
+    padding: 20px;
+}
+
+  /* Contenedor principal */
+:host ::ng-deep .player-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+  /* Tarjetas de los jugadores */
+:host ::ng-deep .player-card {
+    background: #ffffff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+:host ::ng-deep .player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+  /* Imagen de jugador */
+:host ::ng-deep .player-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #00b894;
+    margin-bottom: 15px;
+}
+
+  /* Información de jugador */
+:host ::ng-deep .player-card div {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+  /* Botones */
+:host ::ng-deep .player-card .button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+:host ::ng-deep button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+:host ::ng-deep button.edit {
+    background: #00b894;
+    color: #fff;
+}
+
+:host ::ng-deep button.edit:hover {
+    background: #006644;
+    transform: scale(1.1);
+}
+
+:host ::ng-deep button.delete-button {
+    background: #d63031;
+    color: #fff;
+}
+
+:host ::ng-deep button.delete-button:hover {
+    background: #b20000;
+    transform: scale(1.1);
+}
+
+  /* Formulario de edición y adición */
+:host ::ng-deep form {
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+:host ::ng-deep form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+:host ::ng-deep form input {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+:host ::ng-deep form button {
+    width: calc(50% - 10px);
+    margin: 0 5px;
+}
+
+  /* Diseño responsivo */
+@media (max-width: 768px) {
+    :host ::ng-deep .player-card {
+    max-width: 100%;
+    }
+}

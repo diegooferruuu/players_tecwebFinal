@@ -1,4 +1,4 @@
-<div *ngFor="let player of players; trackBy: trackByPlayerName">
+<!-- <div *ngFor="let player of players; trackBy: trackByPlayerName">
   <div>{{ player.name }}</div>
   <div>{{ player.age }}</div>
   <div>{{ player.nationality }}</div>
@@ -6,13 +6,11 @@
   <div>{{ player.value_euro }}</div>
   <img [src]="player.image" alt="Player Image">
 
-  <!-- Botón para editar el jugador -->
   <button (click)="editPlayer(player)">Editar</button>
-  
-  <!-- Botón para eliminar el jugador -->
+
   <button class="delete-button" (click)="deletePlayer(player._id)">Delete</button>
   
-  <!-- Formulario de edición que solo se muestra cuando el jugador está siendo editado -->
+
   <div *ngIf="isEditing && player._id === playerToEdit?._id">
     <form (ngSubmit)="saveChanges()">
       <label for="name">Name:</label>
@@ -33,7 +31,6 @@
       <label for="image">Image:</label>
       <input type="text" name="image" [(ngModel)]="playerToEdit.image" required />
 
-      <!-- Botones para guardar o cancelar -->
       <button type="submit">Guardar</button>
       <button type="button" (click)="cancelEdit()">Cancelar</button>
     </form>
@@ -42,10 +39,10 @@
   <br />
 </div>
 
-<!-- Botón para mostrar el formulario -->
+
 <button *ngIf="!isAdding" (click)="startAdding()">Añadir Jugador</button>
 
-<!-- Formulario para añadir un jugador -->
+
 <form *ngIf="isAdding" (ngSubmit)="addPlayer()">
   <input [(ngModel)]="playerToAdd.name" name="name" placeholder="Name" required>
   <input [(ngModel)]="playerToAdd.age" name="age" placeholder="Age (12 - 50)" type="number" required>
@@ -58,4 +55,103 @@
   <button type="button" (click)="cancelAdd()">Cancelar</button>
 </form>
 
+-->
+
+
+<div class="player-container">
+  <div *ngFor="let player of players; trackBy: trackByPlayerName" class="player-card">
+    <img [src]="player.image" alt="Player Image">
+    <div>{{ player.name }}</div>
+    <div>Edad: {{ player.age }}</div>
+    <div>País: {{ player.nationality }}</div>
+    <div>Posiciones: {{ player.positions }}</div>
+    <div>Valor: €{{ player.value_euro }}</div>
+
+    <!-- Botones -->
+    <div class="button-container">
+      <button class="edit" (click)="editPlayer(player)">Editar</button>
+      <button class="delete-button" (click)="deletePlayer(player._id)">Eliminar</button>
+    </div>
+
+    <!-- Formulario de edición -->
+    <div *ngIf="isEditing && player._id === playerToEdit?._id">
+      <form (ngSubmit)="saveChanges()">
+        <label for="name">Nombre:</label>
+        <input [(ngModel)]="playerToEdit.name" name="name" required />
+
+        <label for="age">Edad:</label>
+        <input type="number" [(ngModel)]="playerToEdit.age" name="age" required />
+
+        <label for="nationality">Nacionalidad:</label>
+        <input [(ngModel)]="playerToEdit.nationality" name="nationality" required />
+
+        <label for="positions">Posiciones:</label>
+        <input [(ngModel)]="playerToEdit.positions" name="positions" required />
+
+        <label for="value_euro">Valor (€):</label>
+        <input type="number" [(ngModel)]="playerToEdit.value_euro" name="value_euro" required />
+
+        <label for="image">Imagen:</label>
+        <input [(ngModel)]="playerToEdit.image" name="image" />
+
+        <!-- Botones para guardar o cancelar -->
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="cancelEdit()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Botón para añadir jugador -->
+<button *ngIf="!isAdding" (click)="startAdding()">Añadir Jugador</button>
+
+<!-- Formulario de adición -->
+<form *ngIf="isAdding" (ngSubmit)="addPlayer()">
+  <label for="name">Nombre:</label>
+  <input [(ngModel)]="playerToAdd.name" name="name" required placeholder="Nombre" />
+
+  <label for="age">Edad:</label>
+  <input type="number" [(ngModel)]="playerToAdd.age" name="age" required placeholder="Edad" />
+
+  <label for="nationality">Nacionalidad:</label>
+  <input [(ngModel)]="playerToAdd.nationality" name="nationality" required placeholder="Nacionalidad" />
+
+  <label for="positions">Posiciones:</label>
+  <input [(ngModel)]="playerToAdd.positions" name="positions" required placeholder="Posiciones" />
+
+  <label for="value_euro">Valor (€):</label>
+  <input type="number" [(ngModel)]="playerToAdd.value_euro" name="value_euro" required placeholder="Valor" />
+
+  <label for="image">Imagen:</label>
+  <input [(ngModel)]="playerToAdd.image" name="image" placeholder="URL de la Imagen" />
+
+  <!-- Botones para añadir o cancelar -->
+  <button type="submit">Añadir</button>
+  <button type="button" (click)="cancelAdd()">Cancelar</button>
+</form>
+
+
+<!-- <div>
+  <h4>Search Player</h4>
+  <input
+    type="text"
+    [(ngModel)]="playerName"
+    placeholder="Enter player name"
+  />
+  <button (click)="searchPlayer()">Search</button>
+</div>
+
+<div *ngIf="foundPlayer">
+  <h2>Player Found:</h2>
+  <p><strong>Name:</strong> {{ foundPlayer.name }}</p>
+  <p><strong>Age:</strong> {{ foundPlayer.age }}</p>
+  <p><strong>Nationality:</strong> {{ foundPlayer.nationality }}</p>
+  <p><strong>Positions:</strong> {{ foundPlayer.positions }}</p>
+  <p><strong>Value (€):</strong> {{ foundPlayer.value_euro }}</p>
+  <img [src]="foundPlayer.image" alt="Player Image" width="200" />
+</div>
+
+<div *ngIf="errorMessage">
+  <p style="color: red;">{{ errorMessage }}</p>
+</div> -->
 

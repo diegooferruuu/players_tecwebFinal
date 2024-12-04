@@ -1,6 +1,17 @@
-<a routerLink="/players">PLAYERS</a>
+<!-- <a routerLink="/players">PLAYERS</a>
 <br>
 <a routerLink="/prueba">PRUEBA</a>
 
 <p>{{title}}</p>
-<router-outlet />
+<router-outlet /> -->
+
+
+<nav>
+    <a routerLink="/players">Players</a>
+    <!-- <a routerLink="/prueba">Prueba</a> -->
+</nav>
+
+<div class="content">
+    <p>{{ title }}</p>
+    <router-outlet></router-outlet>
+</div>

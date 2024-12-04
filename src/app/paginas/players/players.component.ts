@@ -112,6 +112,25 @@ export class PlayersComponent implements OnInit {
       this.playerToAdd = {}; // Limpiar los datos
     }
 
+
+    // playerName: string = ''; // Nombre del jugador a buscar
+    // foundPlayer: Player | null = null; // Jugador encontrado
+    // errorMessage: string = ''; // Mensaje de error
+    // searchPlayer(): void {
+    //   this.playerService.getPlayerByName(this.playerName).subscribe({
+    //     next: (player: Player) => {
+    //       this.foundPlayer = player; // Almacena el jugador encontrado
+    //       this.errorMessage = ''; // Limpia el mensaje de error
+    //     },
+    //     error: (err) => {
+    //       console.error('Error searching player:', err);
+    //       this.foundPlayer = null; // Limpia el jugador encontrado
+    //       this.errorMessage = 'Player not found'; // Muestra mensaje de error
+    //     },
+    //   });
+    // }
+
+  
 }
 
   

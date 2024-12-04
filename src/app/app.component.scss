@@ -1,0 +1,35 @@
+/* Estilo para el menú */
+nav {
+    background-color: #004d40;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #80cbc4;
+    text-decoration: underline;
+}
+
+  /* Contenido principal */
+.content {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #004d40;
+    text-align: center;
+}
