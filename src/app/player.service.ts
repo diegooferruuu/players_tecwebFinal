@@ -22,4 +22,10 @@ export class PlayerService {
   updatePlayerByID(id: string, updates: Partial<any>): Observable<any> {
     return this.http.patch<Player>(this.url +"/"+ id, updates);
   }
+
+  createPlayer(player: Partial<Player>): Observable<Player> {
+    return this.http.post<Player>('http://localhost:3000/player', player);
+  }
+  
+  
 }

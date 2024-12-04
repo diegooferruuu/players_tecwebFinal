@@ -41,3 +41,21 @@
 
   <br />
 </div>
+
+<!-- Botón para mostrar el formulario -->
+<button *ngIf="!isAdding" (click)="startAdding()">Añadir Jugador</button>
+
+<!-- Formulario para añadir un jugador -->
+<form *ngIf="isAdding" (ngSubmit)="addPlayer()">
+  <input [(ngModel)]="playerToAdd.name" name="name" placeholder="Name" required>
+  <input [(ngModel)]="playerToAdd.age" name="age" placeholder="Age (12 - 50)" type="number" required>
+  <input [(ngModel)]="playerToAdd.nationality" name="nationality" placeholder="Nationality" required>
+  <input [(ngModel)]="playerToAdd.positions" name="positions" placeholder="Positions" required>
+  <input [(ngModel)]="playerToAdd.value_euro" name="value_euro" placeholder="Value (€)" type="number" required>
+  <input [(ngModel)]="playerToAdd.image" name="image" placeholder="Image URL (Optional)">
+
+  <button type="submit">Añadir</button>
+  <button type="button" (click)="cancelAdd()">Cancelar</button>
+</form>
+
+
